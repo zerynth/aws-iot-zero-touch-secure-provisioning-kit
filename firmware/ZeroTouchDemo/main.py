@@ -53,7 +53,6 @@ wifi.link(thing_conf['wifi_ssid'],wifi.WIFI_WPA2, thing_conf['wifi_password'])
 
 print('> init crypto')
 ateccx08a.hwcrypto_init(I2C0 + thing_conf['i2cdrv'], thing_conf['keyslot'], i2c_addr=thing_conf['i2caddr'])
-crypto = ateccx08a.ATECC508A(I2C0 + thing_conf['i2cdrv'], thing_conf['i2caddr'])
 
 load_certificates()
 clicert = ateccx08a.read_certificate(0)

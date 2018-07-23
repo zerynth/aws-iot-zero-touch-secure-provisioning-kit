@@ -136,10 +136,10 @@ demonstrating this kit.
 
 ### Uplink Zerynth Project
 
-Open Zerynth Studio.
-**From the Device Management Widget switch to Advanced Mode and then back to Auto mode to force alias refresh.**
-Open ZeroTouchDemo project (firmware/ZeroTouchDemo).
-Open the serial monitor to see, after uplink, if the device successfully connects to the WiFi and to the cloud.
+1. Open Zerynth Studio.
+2. **From the Device Management Widget switch to Advanced Mode and then back to Auto mode to force alias refresh.**
+3. Open ZeroTouchDemo project (firmware/ZeroTouchDemo).
+4. Open the serial monitor to see, after uplink, if the device successfully connects to the WiFi and to the cloud.
 Uplink the project.
    
 ### Interact with the Board via AWS
