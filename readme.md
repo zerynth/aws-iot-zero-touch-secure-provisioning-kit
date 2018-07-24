@@ -28,11 +28,6 @@ The central hub of the kit is the SAMG55 Xplained Pro board.
 1. Install [**Zerynth Studio**](https://www.zerynth.com/zerynth-studio/).
 2. Install [**AWS CLI**](https://aws.amazon.com/cli/). Used to configure AWS
    credentials for the python scripts.
-3. Install [**Python 3**](https://www.python.org). Make sure to include
-   **pip** and **tcl/tk**. PC side work is done from the Zerynth Toolchain but also from a few
-   custom Python scripts.
-4. Install **Python packages (```pip install –r requirements.txt```)**
-   required for the kit python scripts.
    
 ### AWS Setup
 
@@ -112,7 +107,10 @@ demonstrating this kit.
     
 ### Create and Register the Certificate Authorities (CAs)
 
-1. Run ```ca_create_root.py``` to create a root CA.
+1. Zerynth Python binary can be used to execute the demo custom Python scripts without further dependencies. 
+   Run ``ztc info --tools`` to retrieve Python path. (e.g. C:\Users\myusername\zerynth2\sys\python\python.exe)
+   Run the following command with retrieved Python interpreter.
+2. Run ```ca_create_root.py``` to create a root CA.
 2. Run ```ca_create_signer_csr.py``` to create a CSR for a signer.
 3. Run ```ca_create_signer.py``` to sign the signer CSR with the root CA.
 4. Run ```aws_register_signer.py``` to register the signer with AWS IoT.

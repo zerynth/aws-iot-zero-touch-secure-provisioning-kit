@@ -71,6 +71,7 @@ while True:
         print('> connection failed: retrying for JITR')
         sleep(1000)
 
+thing.update_shadow({ 'button' + str(btn_id+1): btn_states[btn_id] for btn_id in range(3) })
 thing.on_shadow_request(shadow_callback)
 thing.mqtt.loop()
 
