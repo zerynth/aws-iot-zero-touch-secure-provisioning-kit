@@ -123,11 +123,10 @@ demonstrating this kit.
 4. Run ```ztc provisioning uplink-config-firmware my_g55 --i2caddr 0x0``` to prepare the device for provisioning.
 5. Run ```ztc provisioning crypto-scan my_g55 -o .``` to obtain address and type of the crypto element (stored to configure the application).
 6. Run ```ztc provisioning write-config my_g55 configuration.bin --lock True``` to write desired configuration to the device. **This command LOCKS the crypto element and sets the address to 0x58, this procedure is IRREVERSIBLE**
-7. Manually reset the device and run again ```ztc provisioning crypto-scan my_g55``` to check if the new address has been assigned.
+7. Manually reset the device and run again ```ztc provisioning crypto-scan my_g55 -o .``` to check if the new address has been assigned and to update scanned info file.
 8. Run ```ztc provisioning gen-private my_g55 2``` to generate a private key inside slot 2 of the crypto element.
 9. Run ```ztc provisioning get-csr my_g55 2 'C=IT,L=Pisa,O=Zerynth' -o device.csr``` to generate device CSR.
-
-10. Run ```kit_provision.py --ssid wifi-name --password wifi-password``` to start provisioning the crypto element.
+10. Run ```kit_provision.py --ssid wifi-name --password wifi-password``` to start provisioning the crypto element (to be run with Python retrieved at step 1 of the previous section).
 11. Run ```ztc provisioning store-public my_g55 13 root-ca.crt.public``` to store root-ca public key onto the crypto element.
 12. Run ```ztc provisioning store-certificate my_g55 device device.crt``` to store device certificate.
 13. Run ```ztc provisioning store-certificate my_g55 signer signer-ca.crt``` to store signer certificate.
