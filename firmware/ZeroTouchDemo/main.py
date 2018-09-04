@@ -14,7 +14,7 @@ import helpers
 
 new_resource('thing.conf.json')
 
-LED_PINS = [D20, D21, 19]
+LED_PINS = [D20, D21, D19]
 BTN_PINS = [D22, D16, D17]
 btn_states = ['up', 'up', 'up']
 
@@ -44,7 +44,7 @@ def shadow_callback(requested):
 prepare_pins()
 
 streams.serial()
-wifi_driver.init(SPI0, D12, D6, D2, D7, D3)
+wifi_driver.auto_init(ext=1)
 
 thing_conf = helpers.load_thing_conf()
 
@@ -52,7 +52,7 @@ print('> connect to wifi')
 wifi.link(thing_conf['wifi_ssid'],wifi.WIFI_WPA2, thing_conf['wifi_password'])
 
 print('> init crypto')
-ateccx08a.hwcrypto_init(I2C0 + thing_conf['i2cdrv'], thing_conf['keyslot'], i2c_addr=thing_conf['i2caddr'])
+ateccx08a.hwcrypto_init(I2C0 + thing_conf['i2cdrv'], thing_conf['keyslot'], i2c_addr=thing_conf['i2caddr'], dev_type=helpers.conf2atecctype[thing_conf['devtype']])
 
 load_certificates()
 clicert = ateccx08a.read_certificate(0)

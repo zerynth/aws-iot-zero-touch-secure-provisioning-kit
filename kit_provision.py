@@ -127,6 +127,15 @@ def main():
     if kit_info['wifi_password'] is not None:
         disp_password = '*'*len(kit_info['wifi_password'])
     print('    Password: %s' % disp_password)
+
+
+    with open(SCANNED_CRYPTO_FILENAME, 'rb') as f:
+        print('    Loading from ' + f.name)
+        scanned_crypto =  json.loads(f.read().decode('utf-8'))
+
+    kit_info['i2caddr'] = scanned_crypto['address']
+    kit_info['devtype'] = scanned_crypto['devtype']
+
     save_kit_info(kit_info)
 
     print('\nDone')

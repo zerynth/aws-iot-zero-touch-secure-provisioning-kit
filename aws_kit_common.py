@@ -21,6 +21,8 @@ DEVICE_FILENAME_BASE  = 'device'
 DEVICE_CSR_FILENAME   = DEVICE_FILENAME_BASE + '.csr'
 DEVICE_CERT_FILENAME  = DEVICE_FILENAME_BASE + '.crt'
 
+SCANNED_CRYPTO_FILENAME = 'scanned_crypto.json'
+
 ZERYNTH_DEMO_PROJECT_PATH = os.path.join('firmware', 'ZeroTouchDemo')
 ZERYNTH_CONTROLLED_PROJECT_PATH = os.path.join('firmware', 'HWCrypto_Controlled_publish_period')
 ZERYNTH_THING_CONFIGURATION_FILENAME = 'thing.conf.json'

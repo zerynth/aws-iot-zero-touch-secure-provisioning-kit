@@ -115,13 +115,13 @@ demonstrating this kit.
 3. Run ```ca_create_signer.py``` to sign the signer CSR with the root CA.
 4. Run ```aws_register_signer.py``` to register the signer with AWS IoT.
 
-### Provision the ATECC508A on the kit
+### Provision the ATECCx08A on the kit
 
 1. Register and virtualize the device.
 2. Run ```ztc device discover --matchdb``` to retrieve the device id.
 3. Run ```ztc device alias put RETRIEVEDID my_g55 xplained_samg55```  to assign the alias ```my_g55``` to the device.
-4. Run ```ztc provisioning uplink-config-firmware my_g55 --i2caddr 0x0``` to prepare the device for provisioning (reset the device when asked to).
-5. Run ```ztc provisioning crypto-scan my_g55``` to obtain the address of the crypto element.
+4. Run ```ztc provisioning uplink-config-firmware my_g55 --i2caddr 0x0``` to prepare the device for provisioning.
+5. Run ```ztc provisioning crypto-scan my_g55 -o .``` to obtain address and type of the crypto element (stored to configure the application).
 6. Run ```ztc provisioning write-config my_g55 configuration.bin --lock True``` to write desired configuration to the device. **This command LOCKS the crypto element and sets the address to 0x58, this procedure is IRREVERSIBLE**
 7. Manually reset the device and run again ```ztc provisioning crypto-scan my_g55``` to check if the new address has been assigned.
 8. Run ```ztc provisioning gen-private my_g55 2``` to generate a private key inside slot 2 of the crypto element.
@@ -146,6 +146,9 @@ Uplink the project.
    Pressing the buttons on the board will also update their state in the GUI.
    
 ## Releases
+
+### 2018-09-03
+- Support for ATECC608A and minor improvements
 
 ### 2018-07-20
 - Initial release
